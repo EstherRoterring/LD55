@@ -101,17 +101,5 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    //Der dreck ttiggert nicht
-    public void OnTriggerEnter2D(Collision2D other)
-    {
-
-        Debug.Log("triggerd");
-
-        if (other.gameObject.tag == "openDoor")
-        {
-            //scenenwechsel;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-    }
 
 }
