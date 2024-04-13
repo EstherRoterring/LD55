@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Callbacks;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour{
 
@@ -67,7 +68,11 @@ public class PlayerController : MonoBehaviour{
         if(collision.gameObject.tag == "ground"){
             isGrounded = true;
         }
-    }
 
+        if(collision.gameObject.tag == "finish"){
+            //scenenwechsel;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+    }
 
 }
