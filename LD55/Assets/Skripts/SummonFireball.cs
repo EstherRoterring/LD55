@@ -11,6 +11,8 @@ public class SummonFireball : MonoBehaviour
     [SerializeField] GameObject fireball;
 
     [SerializeField] Rigidbody2D rb;
+    public static float
+
 
     // Start is called before the first frame update
     void Start()
