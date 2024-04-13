@@ -5,7 +5,7 @@ using UnityEngine;
 public class open_close : MonoBehaviour
 {
     // Start is called before the first frame update
-    public bool OpenStatus = false;
+    public static bool OpenStatus = false;
     [SerializeField] Collider2D DoorCollider;
     void Start()
     {
@@ -18,7 +18,12 @@ public class open_close : MonoBehaviour
         if (OpenStatus)
         {
             DoorCollider.enabled = false;
+            Debug.Log("Door opened");
         }
         else DoorCollider.enabled = true;
+    }
+    public void SetOpenStatus(bool setStatus)
+    {
+        OpenStatus = setStatus;
     }
 }
