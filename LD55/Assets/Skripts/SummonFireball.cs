@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
 
-public class SummonFirball : MonoBehaviour
+public class SummonFireball : MonoBehaviour
 {
 
     [SerializeField] GameObject fireball;
@@ -21,14 +21,15 @@ public class SummonFirball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ThrowFireball();
+        Summon();
     }
 
-    void ThrowFireball()
+    void Summon()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(fireball, rb.transform.position + new Vector3(0, 1, 0), rb.transform.rotation);
+            GameObject ball = Instantiate(fireball, rb.transform.position + new Vector3(0, 1, 0), rb.transform.rotation);
+            ball.GetComponent<Fireball>().strenth = 66;
         }
     }
 }

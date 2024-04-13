@@ -5,7 +5,8 @@ using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour{
+public class PlayerController : MonoBehaviour
+{
 
     //Variablen fuers Movement
     public float speed = 5;
@@ -40,12 +41,13 @@ public class PlayerController : MonoBehaviour{
     {
 
         //Springen
-        if(Input.GetKeyDown(jump) && isGrounded){
+        if (Input.GetKeyDown(jump) && isGrounded)
+        {
             rb.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse);
             //                                  impulshaft von unten nach oben
             isGrounded = false;
         }
-        
+
     }
 
     void FixedUpdate()
@@ -54,21 +56,25 @@ public class PlayerController : MonoBehaviour{
         //(-1/1)
         float richtung = Input.GetAxis("Horizontal");
 
-    //laufanimation 
-        if(richtung != 0){
+        //laufanimation 
+        if (richtung != 0)
+        {
             anim.SetBool("isRunning", true);
         }
-        else{
+        else
+        {
             anim.SetBool("isRunning", false);
         }
 
         //undrehen
-        if(richtung < 0){
+        if (richtung < 0)
+        {
             transform.eulerAngles = rotation - new Vector3(0, 180, 0);
             //laufen
             transform.Translate(Vector2.right * -richtung * speed * Time.deltaTime);
         }
-        if(richtung > 0){
+        if (richtung > 0)
+        {
             transform.eulerAngles = rotation;
             //laufen
             transform.Translate(Vector2.right * richtung * speed * Time.deltaTime);
@@ -77,15 +83,18 @@ public class PlayerController : MonoBehaviour{
     }
 
 
-    
-    public void OnCollisionEnter2D(Collision2D collision){
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
         //test ob auf Boden -> anti Flug Programm :)
-        if(collision.gameObject.tag == "ground"){
+        if (collision.gameObject.tag == "ground")
+        {
             isGrounded = true;
         }
 
         Debug.Log("collison");
-        if(collision.gameObject.tag == "openDoor"){
+        if (collision.gameObject.tag == "openDoor")
+        {
             //scenenwechsel;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
@@ -93,11 +102,13 @@ public class PlayerController : MonoBehaviour{
     }
 
     //Der dreck ttiggert nicht
-     public void OnTriggerEnter2D(Collision2D other){
+    public void OnTriggerEnter2D(Collision2D other)
+    {
 
         Debug.Log("triggerd");
-  
-        if(other.gameObject.tag == "openDoor"){
+
+        if (other.gameObject.tag == "openDoor")
+        {
             //scenenwechsel;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

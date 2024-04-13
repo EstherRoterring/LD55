@@ -18,9 +18,6 @@ public class trigger : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        open_close open_script = GetComponent<open_close>();
-        // Check if the other collider has a Rigidbody attached
-        Rigidbody2D rb = other.GetComponent<Rigidbody2D>();
         if (other.name == "Fireball(Clone)")
         {
             Debug.Log("Door triger send");

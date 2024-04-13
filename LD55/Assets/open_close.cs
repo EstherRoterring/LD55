@@ -9,7 +9,7 @@ public class open_close : MonoBehaviour
     [SerializeField] Collider2D DoorCollider;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -21,9 +21,5 @@ public class open_close : MonoBehaviour
             Debug.Log("Door opened");
         }
         else DoorCollider.enabled = true;
-    }
-    public void SetOpenStatus(bool setStatus)
-    {
-        OpenStatus = setStatus;
     }
 }
