@@ -63,13 +63,27 @@ public class PlayerController : MonoBehaviour{
     }
 
 
-    //test ob auf Boden -> anti Flug Programm :)
+    
     public void OnCollisionEnter2D(Collision2D collision){
+        //test ob auf Boden -> anti Flug Programm :)
         if(collision.gameObject.tag == "ground"){
             isGrounded = true;
         }
 
-        if(collision.gameObject.tag == "finish"){
+        Debug.Log("collison");
+        if(collision.gameObject.tag == "openDoor"){
+            //scenenwechsel;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
+
+    }
+
+    //Der dreck ttiggert nicht
+     public void OnTriggerEnter2D(Collision2D other){
+
+        Debug.Log("triggerd");
+  
+        if(other.gameObject.tag == "openDoor"){
             //scenenwechsel;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
