@@ -918,6 +918,8 @@ GameObject:
   - component: {fileID: 1701891009}
   - component: {fileID: 1701891011}
   - component: {fileID: 1701891010}
+  - component: {fileID: 1701891012}
+  - component: {fileID: 1701891013}
   m_Layer: 0
   m_Name: Ghosti
   m_TagString: Untagged
@@ -934,7 +936,7 @@ Transform:
   m_GameObject: {fileID: 1701891008}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.333, y: 0.164, z: 0}
+  m_LocalPosition: {x: 0.344, y: 0.087, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: -14.999999}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1013,6 +1015,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1701891012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701891008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c117882c854f41843ae5884925a6d4a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  target: {fileID: 0}
+  hochfliegen: 0
+  myRB: {fileID: 1701891013}
+  obereBorder: 0.17
+  untereBorder: -0.2
+--- !u!50 &1701891013
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701891008}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1757643544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1031,7 +1078,7 @@ GameObject:
   - component: {fileID: 1757643553}
   m_Layer: 0
   m_Name: Lil Wizzz
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
