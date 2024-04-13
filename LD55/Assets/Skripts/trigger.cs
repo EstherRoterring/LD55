@@ -18,7 +18,7 @@ public class trigger : MonoBehaviour
     }
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.name == "Fireball(Clone)")
+        if (other.tag == "projectile")
         {
             Debug.Log("Door triger send");
             open_close.OpenStatus = true;
