@@ -163,8 +163,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRB: {fileID: 6182950208348719724}
-  throwSpeed: {x: 200, y: 500}
+  playerRB: {fileID: 0}
+  throwSpeed: {x: 10, y: 20}
   gravity: 2
+  burst: {fileID: 0}
   strenth: 0
 --- !u!82 &-5289359184595913832
 AudioSource:

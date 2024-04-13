@@ -18,7 +18,7 @@ public class open_close : MonoBehaviour
         if (OpenStatus)
         {
             DoorCollider.enabled = false;
-            Debug.Log("Door opened");
+            // Debug.Log("Door opened");
         }
         else DoorCollider.enabled = true;
     }
