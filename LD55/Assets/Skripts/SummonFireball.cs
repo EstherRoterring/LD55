@@ -11,13 +11,15 @@ public class SummonFireball : MonoBehaviour
     [SerializeField] GameObject fireball;
 
     [SerializeField] Rigidbody2D rb;
-    public static float
 
+    // mana management
+    public int StartMana = 100;
+    public int CurrentMana = 100;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        Debug.Log("i did the start");
     }
 
     // Update is called once per frame
