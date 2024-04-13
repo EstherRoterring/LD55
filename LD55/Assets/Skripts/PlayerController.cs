@@ -11,11 +11,14 @@ public class PlayerController : MonoBehaviour{
     public float jumpforce = 7;
     public Rigidbody2D rb;
     public Animator anim;
-    public bool lookingRight = true;
     public bool isGrounded;
 
     //Keys aendern
     public KeyCode jump = KeyCode.Space;
+
+    //Variablen fuer Animation
+    //isRunning = laufanimation an machen
+    public bool isRunning;
 
 
 
@@ -31,37 +34,39 @@ public class PlayerController : MonoBehaviour{
     void Update()
     {
 
-        if(Input.GetKeyDown(jump)){
+        //Springen
+        if(Input.GetKeyDown(jump) && isGrounded){
             rb.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse);
             //                                  impulshaft von unten nach oben
+            isGrounded = false;
         }
         
     }
 
     void FixedUpdate()
     {
-        //Movement 
+        //Movement rechts - links 
         //(-1/1)
         float richtung = Input.GetAxis("Horizontal");
-
         //geschwindigkeit
         transform.Translate(Vector2.right * richtung * speed * Time.deltaTime);
 
+        //laufanimation 
+        if(richtung != 0){
+            anim.SetBool("isRunning", true);
+        }
+        else{
+            anim.SetBool("isRunning", false);
+        }
 
     }
 
-    //zum umdrehen des players
-    public void Flip(){
-        //Blickrichtung aendern
-        lookingRight = !lookingRight;
-        
-
-    }
 
     //test ob auf Boden -> anti Flug Programm :)
-    public void OnCollisionEnter2D(){
-        //if(Collision.gameObject.tag == "ground"){
-
+    public void OnCollisionEnter2D(Collision2D collision){
+        if(collision.gameObject.tag == "ground"){
+            isGrounded = true;
+        }
     }
 
 
