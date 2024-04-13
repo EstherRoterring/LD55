@@ -11,6 +11,8 @@ public class Fireball : MonoBehaviour
     [SerializeField] public Vector2 throwSpeed;
     [SerializeField] float gravity;
 
+    public int strenth;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class Fireball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // Debug.Log("Stärke" + strenth);
         if (collision.gameObject.name == "Floor")
         {
             Destroy(this.gameObject);
