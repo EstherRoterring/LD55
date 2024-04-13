@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour{
     //Variablen fuer Animation
     //isRunning = laufanimation an machen
     public bool isRunning;
+    private Vector3 rotation;
 
 
 
@@ -28,6 +29,9 @@ public class PlayerController : MonoBehaviour{
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        //aktuelle Rotation bekommen -> standard
+        rotation = transform.eulerAngles;
 
     }
 
@@ -49,15 +53,25 @@ public class PlayerController : MonoBehaviour{
         //Movement rechts - links 
         //(-1/1)
         float richtung = Input.GetAxis("Horizontal");
-        //geschwindigkeit
-        transform.Translate(Vector2.right * richtung * speed * Time.deltaTime);
 
-        //laufanimation 
+    //laufanimation 
         if(richtung != 0){
             anim.SetBool("isRunning", true);
         }
         else{
             anim.SetBool("isRunning", false);
+        }
+
+        //undrehen
+        if(richtung < 0){
+            transform.eulerAngles = rotation - new Vector3(0, 180, 0);
+            //laufen
+            transform.Translate(Vector2.right * -richtung * speed * Time.deltaTime);
+        }
+        if(richtung > 0){
+            transform.eulerAngles = rotation;
+            //laufen
+            transform.Translate(Vector2.right * richtung * speed * Time.deltaTime);
         }
 
     }
