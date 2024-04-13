@@ -16,7 +16,6 @@ public class Fireball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //myRB = GetComponent<Rigidbody2D>();
         myRB.velocity = (new Vector2(Input.mousePosition.x, Input.mousePosition.y) - myRB.position).normalized * throwSpeed * 0.1f;
         myRB.gravityScale = gravity;
         myRB.bodyType = RigidbodyType2D.Dynamic;
