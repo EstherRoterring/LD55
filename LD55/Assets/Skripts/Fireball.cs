@@ -8,11 +8,15 @@ using UnityEngine.Animations;
 public class Fireball : MonoBehaviour
 {
     public Rigidbody2D myRB;
-
     public Rigidbody2D playerRB;
+    public GameObject player;
+
+    [SerializeField] GameObject explosion;
 
     [SerializeField] public Vector2 throwSpeed;
     [SerializeField] float gravity;
+
+    [SerializeField] AudioSource audioSource;
 
     [SerializeField] AudioClip burst;
 
@@ -33,18 +37,21 @@ public class Fireball : MonoBehaviour
 
         myRB.gravityScale = gravity;
         myRB.bodyType = RigidbodyType2D.Dynamic;
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Explosion();
+        Debug.Log("Hallooo ich ibn ni der colisiion detection uns od danke");
+        Explosion();
         if (strenth <= 0)
         {
+            Debug.Log("I habs in die if schleife gschafft");
             Destroy(this.gameObject);
             return;
         }
         strenth = strenth - 50;
-        // Debug.Log("Stärke" + strenth);
     }
 
     // Update is called once per frame
@@ -55,8 +62,8 @@ public class Fireball : MonoBehaviour
 
     void Explosion()
     {
-        AudioSource audioSource = this.GetComponent<AudioSource>();
-        audioSource.clip = burst;
-        audioSource.Play();
+        Instantiate(explosion, myRB.transform.position, myRB.transform.rotation);
+        Debug.Log("halloo ich bin unter der Explison aber noch drinne");
     }
+
 }

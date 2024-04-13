@@ -34,7 +34,7 @@ public class SummonFireball : MonoBehaviour
 
     void Summon()
     {
-        if (Input.GetMouseButtonDown(0) && CurrentMana >0)
+        if (Input.GetMouseButtonDown(0) && CurrentMana > 0)
         {
             CurrentMana -= manaConsumtion;
 
@@ -46,6 +46,7 @@ public class SummonFireball : MonoBehaviour
             Vector3 scale = rb.transform.localScale;
             GameObject ball = Instantiate(fireball, rb.transform.position + new Vector3(1.2f * Mathf.Cos(rb.transform.eulerAngles.y) - 0.2f, 1, 0) * scale.magnitude * 0.15f, rb.transform.rotation);
             ball.GetComponent<Fireball>().playerRB = rb;
+            ball.GetComponent<Fireball>().player = this.gameObject;
             // ball.GetComponent<Fireball>().strenth = Mathf.Min(timer / 3f * 100f, 100);
             ball.GetComponent<Fireball>().strenth = 100;
         }
