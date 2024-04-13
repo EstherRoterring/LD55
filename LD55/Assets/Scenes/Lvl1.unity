@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoorCollider: {fileID: 135237714}
+  DoorSprite: {fileID: 135237711}
 --- !u!60 &135237714
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -533,7 +534,7 @@ Transform:
   m_GameObject: {fileID: 480894063}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.324, y: 0.039, z: 0}
+  m_LocalPosition: {x: 0.374, y: 0.039, z: 0}
   m_LocalScale: {x: 0.033333335, y: 0.033333335, z: -1}
   m_ConstrainProportionsScale: 0
   m_Children: []

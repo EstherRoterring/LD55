@@ -7,6 +7,8 @@ public class open_close : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] public static bool OpenStatus = false;
     [SerializeField] Collider2D DoorCollider;
+    [SerializeField] SpriteRenderer DoorSprite;
+    bool stop = false;
     void Start()
     {
 
@@ -18,7 +20,10 @@ public class open_close : MonoBehaviour
         if (OpenStatus)
         {
             DoorCollider.enabled = false;
-            // Debug.Log("Door opened");
+            DoorSprite.enabled = false;
+            stop = true;
+            //Debug.Log("Door opened");
+
         }
         else DoorCollider.enabled = true;
     }
