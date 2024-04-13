@@ -13,13 +13,13 @@ public class SummonFireball : MonoBehaviour
     [SerializeField] Rigidbody2D rb;
 
     // mana management
-    public int StartMana = 100;
-    public int CurrentMana = 100;
+    public static int MaxMana = 100;
+    public static int CurrentMana = 100;
+    [SerializeField] int manaConsumtion = 10;
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("i did the start");
     }
 
     // Update is called once per frame
@@ -30,10 +30,12 @@ public class SummonFireball : MonoBehaviour
 
     void Summon()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && CurrentMana >0)
         {
             GameObject ball = Instantiate(fireball, rb.transform.position + new Vector3(0, 1, 0), rb.transform.rotation);
             ball.GetComponent<Fireball>().strenth = 66;
+            CurrentMana -= manaConsumtion;
+
         }
     }
 }
