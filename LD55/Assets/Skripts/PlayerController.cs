@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
         }
 
-        Debug.Log("collison");
+        // Debug.Log("collison");
         if (collision.gameObject.tag == "openDoor")
         {
             //scenenwechsel;

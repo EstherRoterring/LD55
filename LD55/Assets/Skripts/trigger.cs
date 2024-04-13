@@ -14,13 +14,13 @@ public class trigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "projectile")
         {
-            Debug.Log("Door triger send");
+            //Debug.Log("Door triger send");
             open_close.OpenStatus = true;
         }
     }
