@@ -8,7 +8,7 @@ public class Fireball : MonoBehaviour
 {
     public Rigidbody2D myRB;
 
-    [SerializeField] public float throwSpeed;
+    [SerializeField] public Vector2 throwSpeed;
     [SerializeField] float gravity;
 
     // Start is called before the first frame update

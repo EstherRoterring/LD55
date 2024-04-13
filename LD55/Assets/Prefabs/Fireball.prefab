@@ -162,5 +162,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myRB: {fileID: 6182950208348719724}
-  throwSpeed: 150
+  throwSpeed: {x: 100, y: 200}
   gravity: 2
