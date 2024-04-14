@@ -40,7 +40,7 @@ public class SummonFireball : MonoBehaviour
             GameObject ball = Instantiate(fireball, rb.transform.position + new Vector3(2.5f * (Mathf.Cos(rb.transform.eulerAngles.y) - 0.2f), 1.2f, 0) * scale.magnitude * 0.15f, rb.transform.rotation);
             //ball.GetComponent<Fireball>().player = this.gameObject;
             ball.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            playerStats.CurrentMana -= manaConsumtion;
+            PlayerStats.CurrentMana -= manaConsumtion;
             ball.GetComponent<Fireball>().playerRB = rb;
             //ball.GetComponent<SpriteRenderer>().material.color = new Color(1f,1f,1f,0f);
         }
