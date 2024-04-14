@@ -117,9 +117,22 @@ public class PlayerController : MonoBehaviour
             transform.Translate(Vector2.up * ClimbSpeed * Time.deltaTime);
             rb.gravityScale = 0;
         }
+        else
+        {
+            rb.gravityScale = gravityScale;
+        }
+
     }
-        
-    
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Lather" && Input.GetKey(up))
+        {
+            rb.gravityScale = gravityScale;
+        }
+
+    }
+
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.collider.name);

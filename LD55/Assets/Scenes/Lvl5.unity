@@ -573,7 +573,7 @@ GameObject:
   - component: {fileID: 392323875}
   m_Layer: 0
   m_Name: Lather
-  m_TagString: Untagged
+  m_TagString: Lather
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1808,7 +1808,7 @@ GameObject:
   - component: {fileID: 1971336997}
   m_Layer: 0
   m_Name: zwischenboden
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2008,6 +2008,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1422305531}
     m_Modifications:
+    - target: {fileID: 4119663425450632974, guid: dc58dff6181a4a7418a342dad3674165, type: 3}
+      propertyPath: ClimbSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6118487711785721619, guid: dc58dff6181a4a7418a342dad3674165, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.075
