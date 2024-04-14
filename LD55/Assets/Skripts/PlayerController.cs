@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public Animator anim;
     public bool isGrounded;
     public float ClimbSpeed = 1;
+    public static float richtung;
     [SerializeField] float gravityScale = 4;
 
     //Keys aendern
