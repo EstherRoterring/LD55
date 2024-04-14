@@ -37,7 +37,7 @@ public class SummonFireball : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && playerStats.CurrentMana > 0)
         {
             Vector3 scale = rb.transform.localScale;
-            GameObject ball = Instantiate(fireball, rb.transform.position + new Vector3(1.2f * Mathf.Cos(rb.transform.eulerAngles.y) - 0.2f, 1, 0) * scale.magnitude * 0.15f, rb.transform.rotation);
+            GameObject ball = Instantiate(fireball, rb.transform.position + new Vector3(2f * (Mathf.Cos(rb.transform.eulerAngles.y) - 0.2f), 1.2f, 0) * scale.magnitude * 0.15f, rb.transform.rotation);
             //ball.GetComponent<Fireball>().player = this.gameObject;
             ball.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             playerStats.CurrentMana -= manaConsumtion;

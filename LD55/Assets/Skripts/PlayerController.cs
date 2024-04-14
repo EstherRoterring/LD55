@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using Unity.VisualScripting;
+using UnityEditor.AssetImporters;
 using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,11 +12,12 @@ public class PlayerController : MonoBehaviour
 {
 
     //Variablen fuers Movement
-    public float speed = 5;
+    public static float speed = 5;
     public float jumpforce = 7;
     public Rigidbody2D rb;
     public Animator anim;
     public bool isGrounded;
+    public static float richtung;
 
     //Keys aendern
     public KeyCode jump = KeyCode.Space;
@@ -58,7 +61,7 @@ public class PlayerController : MonoBehaviour
     {
         //Movement rechts - links 
         //(-1/1)
-        float richtung = Input.GetAxis("Horizontal");
+        richtung = Input.GetAxis("Horizontal");
 
         //laufanimation 
         if (richtung != 0)
@@ -76,6 +79,8 @@ public class PlayerController : MonoBehaviour
             transform.eulerAngles = rotation - new Vector3(0, 180, 0);
             //laufen
             transform.Translate(Vector2.right * -richtung * speed * Time.deltaTime);
+            
+
         }
         if (richtung > 0)
         {

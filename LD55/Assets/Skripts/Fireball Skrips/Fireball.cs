@@ -18,6 +18,9 @@ public class Fireball : MonoBehaviour
     float throwScale;
     float chargeScale;
 
+    //merkt sich ob der ball schon geworfen wurde
+    bool isThrown;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +50,12 @@ public class Fireball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Fireball mit Player mitlaufen
+        if (!isThrown)
+        {
+            transform.Translate(Vector2.right * PlayerController.richtung * PlayerController.speed * Time.deltaTime);
+        }
+
         //transform.rotation = Quaternion.LookRotation(myRB.velocity);
         chargeTime += Time.deltaTime;
         chargeScale = Mathf.Min(0.4f + chargeTime * 2, 2f);
@@ -58,6 +67,9 @@ public class Fireball : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0) && !done)
         {
+            //Fireball werfen = merken
+            isThrown = true;
+
             strenth = Mathf.Min(chargeTime * 1, 1);
             rb.bodyType = RigidbodyType2D.Dynamic;
             Vector2 mousePosi = Camera.main.ScreenToWorldPoint(Input.mousePosition);
