@@ -1625,6 +1625,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4452976226505335086, guid: 3727d13f8013f274cacfeb2ef96b86e7, type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 6.684866
+      objectReference: {fileID: 0}
+    - target: {fileID: 4452976226505335086, guid: 3727d13f8013f274cacfeb2ef96b86e7, type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 23.375309
+      objectReference: {fileID: 0}
     - target: {fileID: 4634898621207787795, guid: 3727d13f8013f274cacfeb2ef96b86e7, type: 3}
       propertyPath: m_Name
       value: Chandelier
