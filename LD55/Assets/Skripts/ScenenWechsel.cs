@@ -38,7 +38,9 @@ public class ScenenWechsel : MonoBehaviour
     }
 
     public void RestartLvl(){
-        SceneManager.LoadScene(PlayerController.restartPoint);
+        //if mode==normal...
+        SceneManager.LoadScene(PlayerController.restartPoint); 
+        //PlayerStats.CurrentMana = PlayerStats.MaxMana;
     }
 
     public void NextScene(){
