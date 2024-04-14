@@ -86,20 +86,41 @@ public class PlayerController : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(collision.collider.name);
+
         //test ob auf Boden -> anti Flug Programm :)
         if (collision.gameObject.tag == "ground")
         {
             isGrounded = true;
         }
 
-        // Debug.Log("collison");
+        //next Room
         if (collision.gameObject.tag == "openDoor")
         {
             //scenenwechsel;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
+        //Tode/Death
+        if (collision.collider.tag == "Enemy")
+        {
+            Debug.Log("Enemy detected");
+            Destroy(gameObject);
+            //Spawn dead body?
+            new WaitForSeconds(1.5f);
+            SceneManager.LoadScene("StandardDeath");
+            
+        }
+        if (collision.collider.tag == "projectile")
+        {
+            Destroy(gameObject);
+            //Spawn dead body?
+            new WaitForSeconds(1.5f);
+            SceneManager.LoadScene("StandardDeath");
+        }
     }
+
+    
 
 
 }
