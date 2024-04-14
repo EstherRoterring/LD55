@@ -118,10 +118,12 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.collider.tag == "projectile")
         {
+            restartPoint = SceneManager.GetActiveScene().buildIndex;
             Destroy(gameObject);
             //Spawn dead body?
             new WaitForSeconds(1.5f);
             SceneManager.LoadScene("Suicide");
+            Debug.Log("end");
         }
     }
     

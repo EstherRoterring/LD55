@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeathScreens/StandardDeath.unity
     guid: 6ca9ded7e71803944be67ba3611ebf04
+  - enabled: 1
+    path: Assets/Scenes/DeathScreens/Suicide.unity
+    guid: 879f67c0397b2e2469ec03cc72fc5d62
   m_configObjects: {}
