@@ -4,22 +4,41 @@ using UnityEngine;
 
 public class StonewallDestruction : MonoBehaviour
 {
-    [SerializeField] Rigidbody2D stonewall;
-    [SerializeField] Rigidbody2D brokenStonewall;
-    [SerializeField] Rigidbody2D barrel;
+    [SerializeField] GameObject stonewall;
+    [SerializeField] GameObject brokenStonewall;
+    [SerializeField] GameObject barrel;
+    [SerializeField] GameObject chandelier;
     void Start()
     {
+        brokenStonewall.SetActive(false);
         
     }
 
     // Update is called once per frame
     void Update()
-    {
-        
+    {        
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("other collider: " + collision.otherCollider);
-        Debug.Log("collider:" + collision.collider);
+        if(collision.collider.tag == "projectile")
+        {
+            barrel.SetActive(false);
+            stonewall.SetActive(false);
+            brokenStonewall.SetActive(true);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.attachedRigidbody.tag == "projectile")
+        {
+            barrel.SetActive(false);
+            stonewall.SetActive(false);
+            brokenStonewall.SetActive(true);
+            if(collision.attachedRigidbody.name == "Chandelier")
+            {
+                chandelier.SetActive(false);
+            }
+        }
     }
 }
