@@ -10,9 +10,12 @@ public class Fireball : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] GameObject explosion;
     [SerializeField] Vector2 throwSpeed;
+    [SerializeField] AudioClip throwAudio;
     public float strenth;
     float chargeTime;
     bool done;
+    Vector3 initialScale;
+    float throwScale;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,8 @@ public class Fireball : MonoBehaviour
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         chargeTime = 0;
         done = false;
+        initialScale = this.gameObject.transform.localScale;
+        this.gameObject.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -43,20 +48,30 @@ public class Fireball : MonoBehaviour
     {
         //transform.rotation = Quaternion.LookRotation(myRB.velocity);
         chargeTime += Time.deltaTime;
+        if (!done)
+        {
+            this.gameObject.transform.localScale = initialScale * Mathf.Min(chargeTime, 1f);
+            //this.gameObject.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, Mathf.Min(chargeTime, 1f));
+        }
+
         if (Input.GetMouseButtonUp(0) && !done)
         {
-            strenth = Mathf.Min(chargeTime * 10, 10);
+            strenth = Mathf.Min(chargeTime * 1, 1);
             rb.bodyType = RigidbodyType2D.Dynamic;
             Vector2 mousePosi = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 ballPosi = rb.position;
             rb.velocity = Vector2.Scale((mousePosi - ballPosi).normalized, throwSpeed) * strenth;
             done = true;
+            this.gameObject.GetComponent<AudioSource>().clip = throwAudio;
+            this.gameObject.GetComponent<AudioSource>().Play();
+            throwScale = chargeTime;
         }
     }
 
     void Explosion()
     {
-        Instantiate(explosion, rb.transform.position, rb.transform.rotation);
+        GameObject explo = Instantiate(explosion, rb.transform.position, rb.transform.rotation);
+        explo.transform.localScale *= throwScale;
     }
 
 }
