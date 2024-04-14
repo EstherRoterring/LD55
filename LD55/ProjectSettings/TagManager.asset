@@ -10,6 +10,7 @@ TagManager:
   - manaPotion
   - Enemy
   - Lather
+  - brennbar
   layers:
   - Default
   - TransparentFX
