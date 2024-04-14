@@ -10,6 +10,7 @@ public class Fireball : MonoBehaviour
     Rigidbody2D rb;
     [SerializeField] GameObject explosion;
     [SerializeField] Vector2 throwSpeed;
+    [SerializeField] AudioClip throwAudio;
     public float strenth;
     float chargeTime;
     bool done;
@@ -45,12 +46,14 @@ public class Fireball : MonoBehaviour
         chargeTime += Time.deltaTime;
         if (Input.GetMouseButtonUp(0) && !done)
         {
-            strenth = Mathf.Min(chargeTime * 10, 10);
+            strenth = Mathf.Min(chargeTime * 1, 1);
             rb.bodyType = RigidbodyType2D.Dynamic;
             Vector2 mousePosi = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 ballPosi = rb.position;
             rb.velocity = Vector2.Scale((mousePosi - ballPosi).normalized, throwSpeed) * strenth;
             done = true;
+            this.gameObject.GetComponent<AudioSource>().clip = throwAudio;
+            this.gameObject.GetComponent<AudioSource>().Play();
         }
     }
 

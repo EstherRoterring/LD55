@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "LD55.sln"
+    "dotnet.defaultSolution": "LD55.sln",
+    "cSpell.enabled": false
 }
