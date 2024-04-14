@@ -92,7 +92,19 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            Debug.Log("Enemy detected");
+            restartPoint = SceneManager.GetActiveScene().buildIndex;
+            Destroy(gameObject);
+            //Spawn dead body?
+            new WaitForSeconds(1.5f);
+            SceneManager.LoadScene("StandardDeath");
 
+        }
+    }
     public void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.collider.name);
@@ -123,10 +135,12 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.collider.tag == "projectile")
         {
+            restartPoint = SceneManager.GetActiveScene().buildIndex;
             Destroy(gameObject);
             //Spawn dead body?
             new WaitForSeconds(1.5f);
             SceneManager.LoadScene("Suicide");
+            Debug.Log("end");
         }
     }
 

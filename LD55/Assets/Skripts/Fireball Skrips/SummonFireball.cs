@@ -34,7 +34,7 @@ public class SummonFireball : MonoBehaviour
 
     void Summon()
     {
-        if (Input.GetMouseButtonDown(0) && playerStats.CurrentMana > 0)
+        if (Input.GetMouseButtonDown(0) && PlayerStats.CurrentMana > 0)
         {
             Vector3 scale = rb.transform.localScale;
             GameObject ball = Instantiate(fireball, rb.transform.position + new Vector3(2.5f * (Mathf.Cos(rb.transform.eulerAngles.y) - 0.2f), 1.2f, 0) * scale.magnitude * 0.15f, rb.transform.rotation);

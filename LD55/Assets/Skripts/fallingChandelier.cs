@@ -22,6 +22,10 @@ public class fallingChandelier : MonoBehaviour
             hinge.enabled = false;
             Debug.Log("Chandelier detected collision");
         }
+        if(collision.collider.tag == "ground")
+        {
+            this.gameObject.tag = "Untagged";
+        }
 
     }
  

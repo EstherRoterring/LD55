@@ -8,6 +8,8 @@ public class StonewallDestruction : MonoBehaviour
     [SerializeField] GameObject brokenStonewall;
     [SerializeField] GameObject barrel;
     [SerializeField] GameObject chandelier;
+    [SerializeField] GameObject explosion;
+    bool alreadyTriggerd = false;
     void Start()
     {
         brokenStonewall.SetActive(false);
@@ -19,15 +21,16 @@ public class StonewallDestruction : MonoBehaviour
     {        
     }
     
-    void OnCollisionEnter2D(Collision2D collision)
+    /*void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.tag == "projectile")
         {
             barrel.SetActive(false);
             stonewall.SetActive(false);
             brokenStonewall.SetActive(true);
+
         }
-    }
+    }*/
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.attachedRigidbody.tag == "projectile")
@@ -35,10 +38,11 @@ public class StonewallDestruction : MonoBehaviour
             barrel.SetActive(false);
             stonewall.SetActive(false);
             brokenStonewall.SetActive(true);
-            if(collision.attachedRigidbody.name == "Chandelier")
+            if(collision.attachedRigidbody.name == "Chandelier" && !alreadyTriggerd)
             {
                 chandelier.SetActive(false);
             }
+            alreadyTriggerd = true;
         }
     }
 }
