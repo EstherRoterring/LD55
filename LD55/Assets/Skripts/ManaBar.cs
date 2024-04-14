@@ -11,16 +11,16 @@ public class HealthBar : MonoBehaviour
     private void Start()
     {
         manaBar = GetComponent<Slider>();
-        manaBar.maxValue = SummonFireball.MaxMana;
-        manaBar.value = SummonFireball.CurrentMana;
+        manaBar.maxValue = playerStats.MaxMana;
+        manaBar.value = playerStats.CurrentMana;
     }
     private void Update()
     {
-        manaBar.value = SummonFireball.CurrentMana;
+        manaBar.value = playerStats.CurrentMana;
     }
 
-    public void SetHealth(int hp)
+    public void SetHealth(int mana)
     {
-        manaBar.value = hp;
+        manaBar.value = mana;
     }
 }
