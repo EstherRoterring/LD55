@@ -16,6 +16,7 @@ public class Fireball : MonoBehaviour
     bool done;
     Vector3 initialScale;
     float throwScale;
+    float chargeScale;
 
     // Start is called before the first frame update
     void Start()
@@ -48,9 +49,10 @@ public class Fireball : MonoBehaviour
     {
         //transform.rotation = Quaternion.LookRotation(myRB.velocity);
         chargeTime += Time.deltaTime;
+        chargeScale = Mathf.Min(0.4f + chargeTime * 2, 2f);
         if (!done)
         {
-            this.gameObject.transform.localScale = initialScale * Mathf.Min(chargeTime, 1f);
+            this.gameObject.transform.localScale = initialScale * chargeScale;
             //this.gameObject.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, Mathf.Min(chargeTime, 1f));
         }
 
@@ -64,7 +66,7 @@ public class Fireball : MonoBehaviour
             done = true;
             this.gameObject.GetComponent<AudioSource>().clip = throwAudio;
             this.gameObject.GetComponent<AudioSource>().Play();
-            throwScale = chargeTime;
+            throwScale = chargeScale;
         }
     }
 
