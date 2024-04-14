@@ -13,14 +13,14 @@ public class StonewallDestruction : MonoBehaviour
     void Start()
     {
         brokenStonewall.SetActive(false);
-        
+
     }
 
     // Update is called once per frame
     void Update()
-    {        
+    {
     }
-    
+
     /*void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.collider.tag == "projectile")
@@ -38,7 +38,7 @@ public class StonewallDestruction : MonoBehaviour
             barrel.SetActive(false);
             stonewall.SetActive(false);
             brokenStonewall.SetActive(true);
-            if(collision.attachedRigidbody.name == "Chandelier" && !alreadyTriggerd)
+            if (collision.attachedRigidbody.name == "Chandelier" && !alreadyTriggerd)
             {
                 chandelier.SetActive(false);
             }
