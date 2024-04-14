@@ -16,9 +16,7 @@ public class SummonFireball : MonoBehaviour
 
     Rigidbody2D rb;
 
-    // mana management
-    public static int MaxMana = 100;
-    public static int CurrentMana = 100;
+    
     [SerializeField] int manaConsumtion = 10;
     float chargeTime;
 
@@ -36,13 +34,13 @@ public class SummonFireball : MonoBehaviour
 
     void Summon()
     {
-        if (Input.GetMouseButtonDown(0) && CurrentMana > 0)
+        if (Input.GetMouseButtonDown(0) && playerStats.CurrentMana > 0)
         {
             Vector3 scale = rb.transform.localScale;
             GameObject ball = Instantiate(fireball, rb.transform.position + new Vector3(1.2f * Mathf.Cos(rb.transform.eulerAngles.y) - 0.2f, 1, 0) * scale.magnitude * 0.15f, rb.transform.rotation);
             //ball.GetComponent<Fireball>().player = this.gameObject;
             ball.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-            CurrentMana -= manaConsumtion;
+            playerStats.CurrentMana -= manaConsumtion;
         }
 
     }
