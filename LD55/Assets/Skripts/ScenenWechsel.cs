@@ -24,6 +24,10 @@ public class ScenenWechsel : MonoBehaviour
         SceneManager.LoadScene("TitleScreen");
     }
 
+    public void GoToLvl1(){
+        SceneManager.LoadScene("Lvl1");
+    }
+
     public void Exit(){
         Application.Quit();
     }
@@ -35,5 +39,9 @@ public class ScenenWechsel : MonoBehaviour
 
     public void NextScene(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void GoToStandardDeathScreen(){
+        SceneManager.LoadScene("StandardDeath");
     }
 }
