@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 {
 
     //Variablen fuers Movement
-    public static float speed = 5;
+    public static float speed = 20;
     public float jumpforce = 7;
     public Rigidbody2D rb;
     public Animator anim;
@@ -79,7 +79,7 @@ public class PlayerController : MonoBehaviour
             transform.eulerAngles = rotation - new Vector3(0, 180, 0);
             //laufen
             transform.Translate(Vector2.right * -richtung * speed * Time.deltaTime);
-            
+
 
         }
         if (richtung > 0)
@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
             //Spawn dead body?
             new WaitForSeconds(1.5f);
             SceneManager.LoadScene("StandardDeath");
-            
+
         }
         if (collision.collider.tag == "projectile")
         {
@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("Suicide");
         }
     }
-    
+
 
 
 }

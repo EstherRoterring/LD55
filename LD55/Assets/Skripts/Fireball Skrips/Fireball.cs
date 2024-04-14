@@ -8,6 +8,7 @@ using UnityEngine.Animations;
 public class Fireball : MonoBehaviour
 {
     Rigidbody2D rb;
+    public Rigidbody2D playerRB;
     [SerializeField] GameObject explosion;
     [SerializeField] Vector2 throwSpeed;
     [SerializeField] AudioClip throwAudio;
@@ -53,7 +54,8 @@ public class Fireball : MonoBehaviour
         //Fireball mit Player mitlaufen
         if (!isThrown)
         {
-            transform.Translate(Vector2.right * PlayerController.richtung * PlayerController.speed * Time.deltaTime);
+            //transform.Translate(Vector2.right * PlayerController.richtung * PlayerController.speed * Time.deltaTime);
+            transform.position = playerRB.transform.position + new Vector3(2.5f * (Mathf.Cos(playerRB.transform.eulerAngles.y) - 0.2f), 1.2f, 0) * playerRB.transform.localScale.magnitude * 0.15f;
         }
 
         //transform.rotation = Quaternion.LookRotation(myRB.velocity);
