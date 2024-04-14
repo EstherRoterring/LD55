@@ -1414,6 +1414,10 @@ PrefabInstance:
       value: 0.06384471
       objectReference: {fileID: 0}
     - target: {fileID: 7425477620544576499, guid: 109bf92013839024badf2155af0675b7, type: 3}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 5029756442719851653, guid: 83663a9c282064263b6da2ad9d71b075, type: 3}
+    - target: {fileID: 7425477620544576499, guid: 109bf92013839024badf2155af0675b7, type: 3}
       propertyPath: chandelier
       value: 
       objectReference: {fileID: 2025510607}
