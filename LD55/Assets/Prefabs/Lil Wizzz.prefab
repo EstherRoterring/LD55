@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 6141551472787936588}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.502, y: -0.211, z: 0}
+  m_LocalPosition: {x: -0.491, y: -0.2134, z: 0}
   m_LocalScale: {x: 0.33333334, y: 0.33333334, z: -10}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -216,7 +216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9f07debd8f573f4a911de0ceb213e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
   jumpforce: 20
   rb: {fileID: 245654244340310643}
   anim: {fileID: 0}
@@ -255,10 +254,10 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.06, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.46182698, y: 0.50263673}
     oldSize: {x: 1.6, y: 0.9}
     newSize: {x: 1.6, y: 0.9}
     adaptiveTilingThreshold: 0.5
