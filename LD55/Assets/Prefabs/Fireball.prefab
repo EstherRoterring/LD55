@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2287882458442522311}
+  - component: {fileID: 1376182523831982163}
   - component: {fileID: 8300272348034496007}
   - component: {fileID: 6182950208348719724}
   - component: {fileID: 4620961984738952636}
-  - component: {fileID: 1376182523831982163}
   - component: {fileID: -5289359184595913832}
   m_Layer: 0
   m_Name: Fireball
@@ -36,6 +36,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1376182523831982163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7056757229336992338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ba333ea7ca440e1a44eb6d1408e758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 5029756442719851653, guid: 83663a9c282064263b6da2ad9d71b075, type: 3}
+  throwSpeed: {x: 10, y: 30}
+  strenth: 0
 --- !u!212 &8300272348034496007
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -103,7 +118,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.36
   m_Material: {fileID: 6200000, guid: 456b391960e9740718b94d0e7af9cdcd, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
@@ -150,27 +165,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.099999994
---- !u!114 &1376182523831982163
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7056757229336992338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2ba333ea7ca440e1a44eb6d1408e758, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myRB: {fileID: 6182950208348719724}
-  playerRB: {fileID: 0}
-  player: {fileID: 0}
-  explosion: {fileID: 5029756442719851653, guid: 83663a9c282064263b6da2ad9d71b075, type: 3}
-  throwSpeed: {x: 10, y: 20}
-  gravity: 2
-  audioSource: {fileID: -5289359184595913832}
-  burst: {fileID: 8300000, guid: 592421fcb2eef4dcfa35913cb34276bf, type: 3}
-  strenth: 0
 --- !u!82 &-5289359184595913832
 AudioSource:
   m_ObjectHideFlags: 0
