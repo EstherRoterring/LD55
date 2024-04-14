@@ -119,8 +119,4 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene("StandardDeath");
         }
     }
-
-    
-
-
 }
