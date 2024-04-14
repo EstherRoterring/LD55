@@ -44,6 +44,11 @@ public class Fireball : MonoBehaviour
     {
         //transform.rotation = Quaternion.LookRotation(myRB.velocity);
         chargeTime += Time.deltaTime;
+        if (!done)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, Mathf.Min(chargeTime, 1f));
+        }
+
         if (Input.GetMouseButtonUp(0) && !done)
         {
             strenth = Mathf.Min(chargeTime * 1, 1);
