@@ -31,6 +31,11 @@ public class Fireball : MonoBehaviour
             return;
         }
         strenth = strenth - 5;
+
+        if (collision.collider.name == "Trigger")
+        {
+            this.GetComponent<Collider2D>().sharedMaterial = collision.collider.sharedMaterial;
+        }
     }
 
     // Update is called once per frame
@@ -44,7 +49,7 @@ public class Fireball : MonoBehaviour
             rb.bodyType = RigidbodyType2D.Dynamic;
             Vector2 mousePosi = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 ballPosi = rb.position;
-            rb.velocity = Vector2.Scale((mousePosi - ballPosi).normalized, throwSpeed) * strenth * 0.15f;
+            rb.velocity = Vector2.Scale((mousePosi - ballPosi).normalized, throwSpeed) * strenth;
             done = true;
         }
     }
