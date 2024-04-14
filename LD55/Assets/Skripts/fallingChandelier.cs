@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class fallingChandelier : MonoBehaviour
 {
+    [SerializeField] HingeJoint2D hinge;
     // Start is called before the first frame update
-    [SerializeField] Rigidbody2D myRB;
-    [SerializeField] float newGravity;
     void Start()
     {
-        myRB.gravityScale = 0;
     }
 
     // Update is called once per frame
@@ -21,7 +19,7 @@ public class fallingChandelier : MonoBehaviour
     {
         if (collision.collider.tag == "projectile")
         {
-            myRB.gravityScale = newGravity;
+            hinge.enabled = false;
             Debug.Log("Chandelier detected collision");
         }
 
