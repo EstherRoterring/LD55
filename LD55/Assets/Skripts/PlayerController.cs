@@ -17,10 +17,13 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Animator anim;
     public bool isGrounded;
+    public float ClimbSpeed = 1;
     public static float richtung;
+    [SerializeField] float gravityScale = 4;
 
     //Keys aendern
     public KeyCode jump = KeyCode.Space;
+    public KeyCode up = KeyCode.W;
 
     //Variablen fuer Animation
     //isRunning = laufanimation an machen
@@ -94,6 +97,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        // Logik f�r interaktion mit Ghostis
         if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("Enemy detected");
@@ -102,9 +106,20 @@ public class PlayerController : MonoBehaviour
             //Spawn dead body?
             new WaitForSeconds(1.5f);
             SceneManager.LoadScene("StandardDeath");
+        }
 
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        // Leiterbewegung
+        if(collision.gameObject.tag == "Lather" && Input.GetKey(up))
+        {
+            transform.Translate(Vector2.up * ClimbSpeed * Time.deltaTime);
+            rb.gravityScale = 0;
         }
     }
+        
+    
     public void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.collider.name);

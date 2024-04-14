@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: a9c95b42d3b16fd43b86404da71c8da5
   - enabled: 1
+    path: Assets/Scenes/ChooseMode.unity
+    guid: da0c6c14b8e24b349a6fc81381e52dcf
+  - enabled: 1
     path: Assets/Scenes/Lvl1.unity
     guid: cf1c964095ef86244afa00ed383f53af
   - enabled: 1

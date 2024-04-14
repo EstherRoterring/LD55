@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 using UnityEngine.SceneManagement;
 
 public class ScenenWechsel : MonoBehaviour
 {
+
+    public static bool GameModeIsHard;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,12 +42,27 @@ public class ScenenWechsel : MonoBehaviour
     }
 
     public void RestartLvl(){
-        //if mode==normal...
-        SceneManager.LoadScene(PlayerController.restartPoint); 
+        if (GameModeIsHard){
+            GoToLvl1();
+        }
+        else{
+            SceneManager.LoadScene(PlayerController.restartPoint); 
+        }
+        
         //PlayerStats.CurrentMana = PlayerStats.MaxMana;
     }
 
     public void NextScene(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void NextSceneNormal(){
+        GameModeIsHard = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void NextSceneHard(){
+        GameModeIsHard = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
