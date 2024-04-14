@@ -16,7 +16,7 @@ public class SummonFireball : MonoBehaviour
 
     Rigidbody2D rb;
 
-    
+
     [SerializeField] int manaConsumtion = 10;
     float chargeTime;
 
@@ -41,7 +41,7 @@ public class SummonFireball : MonoBehaviour
             //ball.GetComponent<Fireball>().player = this.gameObject;
             ball.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
             playerStats.CurrentMana -= manaConsumtion;
-            ball.GetComponent<SpriteRenderer>().material.color = new Color(1f,1f,1f,0f);
+            //ball.GetComponent<SpriteRenderer>().material.color = new Color(1f,1f,1f,0f);
         }
 
     }

@@ -14,6 +14,8 @@ public class Fireball : MonoBehaviour
     public float strenth;
     float chargeTime;
     bool done;
+    Vector3 initialScale;
+    float throwScale;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,8 @@ public class Fireball : MonoBehaviour
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         chargeTime = 0;
         done = false;
+        initialScale = this.gameObject.transform.localScale;
+        this.gameObject.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -46,7 +50,8 @@ public class Fireball : MonoBehaviour
         chargeTime += Time.deltaTime;
         if (!done)
         {
-            this.gameObject.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, Mathf.Min(chargeTime, 1f));
+            this.gameObject.transform.localScale = initialScale * Mathf.Min(chargeTime, 1f);
+            //this.gameObject.GetComponent<SpriteRenderer>().material.color = new Color(1f, 1f, 1f, Mathf.Min(chargeTime, 1f));
         }
 
         if (Input.GetMouseButtonUp(0) && !done)
@@ -59,12 +64,14 @@ public class Fireball : MonoBehaviour
             done = true;
             this.gameObject.GetComponent<AudioSource>().clip = throwAudio;
             this.gameObject.GetComponent<AudioSource>().Play();
+            throwScale = chargeTime;
         }
     }
 
     void Explosion()
     {
-        Instantiate(explosion, rb.transform.position, rb.transform.rotation);
+        GameObject explo = Instantiate(explosion, rb.transform.position, rb.transform.rotation);
+        explo.transform.localScale *= throwScale;
     }
 
 }
