@@ -37,6 +37,10 @@ public class ScenenWechsel : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    public void RestartLvl(){
+        SceneManager.LoadScene(PlayerController.restartPoint);
+    }
+
     public void NextScene(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

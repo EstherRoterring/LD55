@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -22,6 +23,9 @@ public class PlayerController : MonoBehaviour
     //isRunning = laufanimation an machen
     public bool isRunning;
     private Vector3 rotation;
+
+    //Remember todesort/lvl
+    public static int restartPoint;
 
 
 
@@ -105,6 +109,7 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.tag == "Enemy")
         {
             Debug.Log("Enemy detected");
+            restartPoint = SceneManager.GetActiveScene().buildIndex;
             Destroy(gameObject);
             //Spawn dead body?
             new WaitForSeconds(1.5f);
@@ -116,10 +121,9 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
             //Spawn dead body?
             new WaitForSeconds(1.5f);
-            SceneManager.LoadScene("StandardDeath");
+            SceneManager.LoadScene("Suicide");
         }
     }
-
     
 
 

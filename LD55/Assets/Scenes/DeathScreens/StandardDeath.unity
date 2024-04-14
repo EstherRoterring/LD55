@@ -1575,7 +1575,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1817350631}
         m_TargetAssemblyTypeName: ScenenWechsel, Assembly-CSharp
-        m_MethodName: GoToLvl1
+        m_MethodName: RestartLvl
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
