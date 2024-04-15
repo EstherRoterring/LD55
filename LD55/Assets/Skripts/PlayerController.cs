@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
             new WaitForSeconds(1.5f);
             SceneManager.LoadScene("StandardDeath");
         }
-
+        
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.gravityScale = gravityScale;
         }
+
 
     }
     private void OnTriggerExit2D(Collider2D collision)
