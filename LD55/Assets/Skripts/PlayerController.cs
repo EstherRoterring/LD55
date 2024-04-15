@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float gravityScale = 4;
 
     //Keys aendern
+    //Keys aendern
     public KeyCode jump = KeyCode.Space;
     public KeyCode up = KeyCode.W;
 
@@ -47,6 +48,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            PlayerStats.fillCurrentMana();
+        }
+
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            ScenenWechsel.ResetScene();
+        }
 
         //Springen
         if (Input.GetKeyDown(jump) && (isGrounded))
@@ -105,7 +116,7 @@ public class PlayerController : MonoBehaviour
             new WaitForSeconds(1.5f);
             SceneManager.LoadScene("StandardDeath");
         }
-        
+
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -135,10 +146,11 @@ public class PlayerController : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.collider.name);
+        //
+        //Debug.Log(collision.collider.name);
 
         //test ob auf Boden -> anti Flug Programm :)
-        if ((collision.gameObject.tag == "ground")||(collision.gameObject.tag == "Box"))
+        if ((collision.gameObject.tag == "ground") || (collision.gameObject.tag == "Box"))
         {
             isGrounded = true;
         }
@@ -153,7 +165,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "backtrack")
         {
             //scenenwechsel;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
 
         //Tode/Death
@@ -161,22 +173,22 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Enemy detected");
             restartPoint = SceneManager.GetActiveScene().buildIndex;
-            PlayerStats.manaLevels[SceneManager.GetActiveScene().buildIndex] = PlayerStats.CurrentMana;
             Destroy(gameObject);
             //Spawn dead body?
             new WaitForSeconds(1.5f);
             SceneManager.LoadScene("StandardDeath");
+            clockScript.clockStarted = false;
 
         }
         if (collision.collider.tag == "projectile")
         {
-            Debug.Log("projectile");
+            //Debug.Log("projectile");
             restartPoint = SceneManager.GetActiveScene().buildIndex;
-            PlayerStats.manaLevels[SceneManager.GetActiveScene().buildIndex] = PlayerStats.CurrentMana;
             Destroy(gameObject);
             //Spawn dead body?
             new WaitForSeconds(1.5f);
             SceneManager.LoadScene("Suicide");
+            clockScript.clockStarted = false;
             Debug.Log("end");
         }
     }

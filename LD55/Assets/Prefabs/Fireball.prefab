@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ba333ea7ca440e1a44eb6d1408e758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRB: {fileID: 0}
   explosion: {fileID: 5029756442719851653, guid: 83663a9c282064263b6da2ad9d71b075, type: 3}
   throwSpeed: {x: 20, y: 30}
   throwAudio: {fileID: 8300000, guid: 89ad80c3e0283432ead4c922e656b0d5, type: 3}
@@ -97,7 +98,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 730423377
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 37e34d1882f304ba7a874160160ac102, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
