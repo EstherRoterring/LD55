@@ -128,6 +128,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.gravityScale = gravityScale;
         }
+        rb.gravityScale = gravityScale;
 
     }
 
@@ -149,6 +150,11 @@ public class PlayerController : MonoBehaviour
             //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             ScenenWechsel.NextScene();
         }
+        if (collision.gameObject.tag == "backtrack")
+        {
+            //scenenwechsel;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+        }
 
         //Tode/Death
         if (collision.collider.tag == "Enemy")
@@ -164,6 +170,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.collider.tag == "projectile")
         {
+            Debug.Log("projectile");
             restartPoint = SceneManager.GetActiveScene().buildIndex;
             PlayerStats.manaLevels[SceneManager.GetActiveScene().buildIndex] = PlayerStats.CurrentMana;
             Destroy(gameObject);
