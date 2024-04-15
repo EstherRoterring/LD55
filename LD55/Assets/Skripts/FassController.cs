@@ -25,7 +25,7 @@ public class FassController : MonoBehaviour
     {
         Debug.Log(collision.collider.name);
 
-        if (collision.collider.tag == "brennbar")
+        if ((collision.collider.tag == "brennbar")||(collision.collider.tag == "Box"))
         {
             wirdZerstoert = collision.gameObject;
             //Destroy(collision.gameObject);

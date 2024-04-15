@@ -10,8 +10,10 @@ public class StonewallDestruction : MonoBehaviour
     [SerializeField] GameObject chandelier;
     [SerializeField] GameObject explosion;
     bool alreadyTriggerd = false;
+    public Rigidbody2D rb;
     void Start()
     {
+        rb = barrel.GetComponent<Rigidbody2D>();
         brokenStonewall.SetActive(false);
 
     }
@@ -36,6 +38,8 @@ public class StonewallDestruction : MonoBehaviour
         if (collision.attachedRigidbody.tag == "projectile")
         {
             barrel.SetActive(false);
+            GameObject explo = Instantiate(explosion, rb.transform.position, rb.transform.rotation);
+            explo.transform.localScale *= 10 ;
             stonewall.SetActive(false);
             brokenStonewall.SetActive(true);
             if (collision.attachedRigidbody.name == "Chandelier" && !alreadyTriggerd)

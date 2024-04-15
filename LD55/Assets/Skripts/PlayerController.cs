@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
     {
 
         //Springen
-        if (Input.GetKeyDown(jump) && isGrounded)
+        if (Input.GetKeyDown(jump) && (isGrounded))
         {
             rb.AddForce(Vector2.up * jumpforce, ForceMode2D.Impulse);
             //                                  impulshaft von unten nach oben
@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log(collision.collider.name);
 
         //test ob auf Boden -> anti Flug Programm :)
-        if (collision.gameObject.tag == "ground")
+        if ((collision.gameObject.tag == "ground")||(collision.gameObject.tag == "Box"))
         {
             isGrounded = true;
         }
