@@ -110,7 +110,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
         // Leiterbewegung
-        if(collision.gameObject.tag == "Lather" && Input.GetKey(up))
+        if (collision.gameObject.tag == "Lather" && Input.GetKey(up))
         {
             transform.Translate(Vector2.up * ClimbSpeed * Time.deltaTime);
             rb.gravityScale = 0;
@@ -145,7 +145,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "openDoor")
         {
             //scenenwechsel;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            ScenenWechsel.NextScene();
         }
 
         //Tode/Death
@@ -153,6 +154,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Enemy detected");
             restartPoint = SceneManager.GetActiveScene().buildIndex;
+            PlayerStats.manaLevels[SceneManager.GetActiveScene().buildIndex] = PlayerStats.CurrentMana;
             Destroy(gameObject);
             //Spawn dead body?
             new WaitForSeconds(1.5f);
@@ -162,6 +164,7 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.tag == "projectile")
         {
             restartPoint = SceneManager.GetActiveScene().buildIndex;
+            PlayerStats.manaLevels[SceneManager.GetActiveScene().buildIndex] = PlayerStats.CurrentMana;
             Destroy(gameObject);
             //Spawn dead body?
             new WaitForSeconds(1.5f);
