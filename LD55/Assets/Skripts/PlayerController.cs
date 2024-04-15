@@ -195,15 +195,18 @@ public class PlayerController : MonoBehaviour
             //Spawn dead body?
             new WaitForSeconds(1.5f);
             clockScript.clockStarted = false;
-            //Debug.Log("end");
-            if(collision.collider.name == "Chandelier")
+            Debug.Log("collider name: " + collision.collider.gameObject.name);
+            SceneManager.LoadScene("Suicide");
+            /*
+            if(collision.collider.gameObject.name == "Chandelier")
             {
-                SceneManager.LoadScene("Chandlier");
+                SceneManager.LoadScene("Chandelier");
+                Debug.Log("Chandelier death triggerd");
             }
             else
             {
                 SceneManager.LoadScene("Suicide");
-            }
+            }*/
         }
     }
 
