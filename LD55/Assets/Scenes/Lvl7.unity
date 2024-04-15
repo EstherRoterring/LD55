@@ -901,6 +901,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1422305531}
     m_Modifications:
+    - target: {fileID: 2640157544432548161, guid: 8c139d18d799a9049a8d1747ae010ea6, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5698097650837569453, guid: 8c139d18d799a9049a8d1747ae010ea6, type: 3}
       propertyPath: m_Name
       value: ManaPotion

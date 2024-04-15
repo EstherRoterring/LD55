@@ -18,12 +18,13 @@ public class PlayerStats : MonoBehaviour
     {
 
     }
-    void OnCollisionEnter2D(Collision2D collision)
+   
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.collider.tag == "manaPotion")
+        if (collision.gameObject.tag == "manaPotion")
         {
             CurrentMana = MaxMana;
-            collision.collider.gameObject.SetActive(false);
+            collision.gameObject.SetActive(false);
         }
     }
 }
