@@ -8,31 +8,17 @@ using UnityEngine.SceneManagement;
 public class ScenenWechsel : MonoBehaviour
 {
 
-
-
     public static bool GameModeIsHard;
     // Start is called before the first frame update
-    void Start()
-    {
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            ResetScene();
-        }
 
-    }
-
-    public void GoToMenu()
+    public static void GoToMenu()
     {
         SceneManager.LoadScene("TitleScreen");
         PlayerStats.fillallMana();
         clockScript.currentTime = 0;
     }
 
-    public void GoToLvl1()
+    public static void GoToLvl1()
     {
         PlayerStats.fillallMana();
         SceneManager.LoadScene("Lvl1");
@@ -55,14 +41,14 @@ public class ScenenWechsel : MonoBehaviour
 #endif
     }
 
-    public void ResetScene()
+    public static void ResetScene()
     {
-
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        RestartLvl();
+        int thisScene = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(thisScene);
+        PlayerStats.loadMana(thisScene);
     }
 
-    public void RestartLvl()
+    public static void RestartLvl()
     {
         if (GameModeIsHard)
         {
@@ -88,19 +74,19 @@ public class ScenenWechsel : MonoBehaviour
         PlayerStats.saveCurrentMana(currentLevel + 1);
     }
 
-    public void GoToLvl1Normal()
+    public static void GoToLvl1Normal()
     {
         GameModeIsHard = false;
         GoToLvl1();
     }
 
-    public void GoToLvl1Hard()
+    public static void GoToLvl1Hard()
     {
         GameModeIsHard = true;
         GoToLvl1();
     }
 
-    public void GoToStandardDeathScreen()
+    public static void GoToStandardDeathScreen()
     {
         SceneManager.LoadScene("StandardDeath");
         clockScript.clockStarted = false;

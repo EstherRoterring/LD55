@@ -54,6 +54,11 @@ public class PlayerController : MonoBehaviour
             PlayerStats.fillCurrentMana();
         }
 
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            ScenenWechsel.ResetScene();
+        }
+
         //Springen
         if (Input.GetKeyDown(jump) && (isGrounded))
         {
