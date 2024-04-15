@@ -148,6 +148,11 @@ public class PlayerController : MonoBehaviour
             //scenenwechsel;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+        if (collision.gameObject.tag == "backtrack")
+        {
+            //scenenwechsel;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+        }
 
         //Tode/Death
         if (collision.collider.tag == "Enemy")
@@ -162,6 +167,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.collider.tag == "projectile")
         {
+            Debug.Log("projectile");
             restartPoint = SceneManager.GetActiveScene().buildIndex;
             Destroy(gameObject);
             //Spawn dead body?
