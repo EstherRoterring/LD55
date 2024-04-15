@@ -9,7 +9,6 @@ public class ScenenWechsel : MonoBehaviour
 {
 
     public static bool GameModeIsHard;
-    // Start is called before the first frame update
 
     public static void GoToMenu()
     {
@@ -21,6 +20,7 @@ public class ScenenWechsel : MonoBehaviour
     public static void GoToLvl1()
     {
         PlayerStats.fillallMana();
+        PlayerStats.loadMana(1);
         SceneManager.LoadScene("Lvl1");
         clockScript.currentTime = 0;
     }
@@ -50,13 +50,13 @@ public class ScenenWechsel : MonoBehaviour
 
     public static void RestartLvl()
     {
-        if (GameModeIsHard)
+        if (ScenenWechsel.GameModeIsHard)
         {
             GoToLvl1();
         }
         else
         {
-
+            Debug.Log("Hehe doch hier unten");
             SceneManager.LoadScene(PlayerController.restartPoint);
             PlayerStats.loadMana(PlayerController.restartPoint);
             Debug.Log(PlayerStats.manaLevels[PlayerController.restartPoint]);
@@ -76,13 +76,13 @@ public class ScenenWechsel : MonoBehaviour
 
     public static void GoToLvl1Normal()
     {
-        GameModeIsHard = false;
+        ScenenWechsel.GameModeIsHard = false;
         GoToLvl1();
     }
 
     public static void GoToLvl1Hard()
     {
-        GameModeIsHard = true;
+        ScenenWechsel.GameModeIsHard = true;
         GoToLvl1();
     }
 
