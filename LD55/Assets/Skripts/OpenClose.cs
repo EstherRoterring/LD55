@@ -8,7 +8,6 @@ public class open_close : MonoBehaviour
     [SerializeField] public bool OpenStatus = false;
     [SerializeField] Collider2D DoorCollider;
     [SerializeField] SpriteRenderer DoorSprite;
-    bool stop = false;
 
     void Start()
     {
@@ -22,8 +21,11 @@ public class open_close : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        DoorCollider.enabled = false;
-        DoorSprite.enabled = false;
-        stop = true;
+        if(collision.gameObject.tag == "projectile")
+        {
+            DoorCollider.enabled = false;
+            DoorSprite.enabled = false;
+        }
+        
     }
 }

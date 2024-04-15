@@ -26,6 +26,7 @@ public class ScenenWechsel : MonoBehaviour
     public void GoToMenu()
     {
         SceneManager.LoadScene("TitleScreen");
+        PlayerStats.fillMana();
     }
 
     public void GoToLvl1()
