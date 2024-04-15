@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        // Logik f�r interaktion mit Ghostis
+        // Logik für interaktion mit Ghostis
         if (collision.gameObject.tag == "Enemy")
         {
             Debug.Log("Enemy detected");
@@ -194,9 +194,16 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
             //Spawn dead body?
             new WaitForSeconds(1.5f);
-            SceneManager.LoadScene("Suicide");
             clockScript.clockStarted = false;
-            Debug.Log("end");
+            //Debug.Log("end");
+            if(collision.collider.name == "Chandelier")
+            {
+                SceneManager.LoadScene("Chandlier");
+            }
+            else
+            {
+                SceneManager.LoadScene("Suicide");
+            }
         }
     }
 
