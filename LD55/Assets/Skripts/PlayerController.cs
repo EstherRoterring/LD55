@@ -128,6 +128,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.gravityScale = gravityScale;
         }
+        rb.gravityScale = gravityScale;
 
     }
 
