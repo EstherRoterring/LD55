@@ -76,8 +76,8 @@ public class ScenenWechsel : MonoBehaviour
 
     public static void GoToLvl1Normal()
     {
-        GameModeIsHard = false;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+        ScenenWechsel.GameModeIsHard = false;
+        GoToLvl1();
     }
 
     public static void GoToLvl1Hard()
