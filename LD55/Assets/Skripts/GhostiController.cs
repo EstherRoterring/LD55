@@ -1,11 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GhostiController : MonoBehaviour
 {
 
-    public float speed =2;
+    public float speed = 2;
     public Transform target;
     private Vector3 rotation;
 
@@ -13,6 +15,14 @@ public class GhostiController : MonoBehaviour
     public Rigidbody2D myRB;
     public float obereBorder;
     public float untereBorder;
+    float wait = 0;
+
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -22,18 +32,19 @@ public class GhostiController : MonoBehaviour
         //aktuelle Rotation bekommen -> standard
         rotation = transform.eulerAngles;
 
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        transform.position = Vector3.MoveTowards(transform.position, target.position, speed*Time.deltaTime);
-        
+
+        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+
         //umdrehen
         float a = transform.position.x;
         float b = target.position.x;
-        float richtung = a-b;
+        float richtung = a - b;
         Debug.Log(richtung);
 
         if (richtung < 0)
@@ -45,6 +56,16 @@ public class GhostiController : MonoBehaviour
             transform.eulerAngles = rotation;
         }
 
+        // play ghostu sound
+        //wait += Time.deltaTime;
+
+
+
+        if (wait > 3)
+        {
+            wait = 0;
+            //audioManager.PlaySFX(audioManager.ghostis1);
+        }
 
         //hoch runter Ghosti
 
