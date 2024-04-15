@@ -10,7 +10,7 @@ public class endScreen : MonoBehaviour
     {
         if (ScenenWechsel.GameModeIsHard)
         {
-            text.text = "You finnished in " + clockScript.currentTime.ToString("0.0") + "s";
+            text.text = "You finnished in " + clockScript.currentTime.ToString("0.0") + "s\n Good job!";
 
         }
         else
