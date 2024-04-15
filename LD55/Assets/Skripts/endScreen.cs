@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 public class endScreen : MonoBehaviour
 {
-    TMP_Text text;
+    [SerializeField] TMP_Text text;
     // Start is called before the first frame update
     void Start()
     {
