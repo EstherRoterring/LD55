@@ -7,12 +7,14 @@ public class UIscript : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] GameObject aButton;
     [SerializeField] GameObject dButton;
+    [SerializeField] GameObject mouseButton;
     void Start()
     {
         if (ScenenWechsel.GameModeIsHard)
         {
             aButton.SetActive(false);
             dButton.SetActive(false);
+            mouseButton.SetActive(false);
         }
 
     }
@@ -28,6 +30,10 @@ public class UIscript : MonoBehaviour
         {
             dButton.SetActive(false);
         }
-        
+        if (Input.GetMouseButton(0))
+        {
+            mouseButton.SetActive(false);
+        }
+
     }
 }
