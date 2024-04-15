@@ -768,7 +768,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '(Hard Mode has no instruktions and you shoudnt die)
+  m_text: '(Hard Mode has no instructions and you shoudnt die)
 
 '
   m_isRightToLeft: 0
