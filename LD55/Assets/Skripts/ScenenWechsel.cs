@@ -77,13 +77,13 @@ public class ScenenWechsel : MonoBehaviour
     public static void GoToLvl1Normal()
     {
         GameModeIsHard = false;
-        SceneManager.LoadScene("CutScene");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
     }
 
     public static void GoToLvl1Hard()
     {
         GameModeIsHard = true;
-        SceneManager.LoadScene("CutScene");
+        SceneManager.LoadScene("Lvl1");
     }
 
     public static void GoToStandardDeathScreen()
