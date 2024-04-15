@@ -11,16 +11,20 @@ public class PlayerStats : MonoBehaviour
     public static int MaxMana = 100;
     public static int CurrentMana = 100;
     public static int[] manaLevels = new int[100];
+
+
     void Start()
     {
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
+        //Debug.Log(this.gameObject.name);
     }
-   
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "manaPotion")

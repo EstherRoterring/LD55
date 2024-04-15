@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float gravityScale = 4;
 
     //Keys aendern
+    //Keys aendern
     public KeyCode jump = KeyCode.Space;
     public KeyCode up = KeyCode.W;
 
@@ -135,7 +136,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.collider.name);
+        //
+        //Debug.Log(collision.collider.name);
 
         //test ob auf Boden -> anti Flug Programm :)
         if ((collision.gameObject.tag == "ground")||(collision.gameObject.tag == "Box"))
@@ -166,17 +168,19 @@ public class PlayerController : MonoBehaviour
             //Spawn dead body?
             new WaitForSeconds(1.5f);
             SceneManager.LoadScene("StandardDeath");
+            clockScript.clockStarted = false;
 
         }
         if (collision.collider.tag == "projectile")
         {
-            Debug.Log("projectile");
+            //Debug.Log("projectile");
             restartPoint = SceneManager.GetActiveScene().buildIndex;
             PlayerStats.manaLevels[SceneManager.GetActiveScene().buildIndex] = PlayerStats.CurrentMana;
             Destroy(gameObject);
             //Spawn dead body?
             new WaitForSeconds(1.5f);
             SceneManager.LoadScene("Suicide");
+            clockScript.clockStarted = false;
             Debug.Log("end");
         }
     }

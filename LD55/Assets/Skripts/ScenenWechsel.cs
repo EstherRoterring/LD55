@@ -8,11 +8,12 @@ using UnityEngine.SceneManagement;
 public class ScenenWechsel : MonoBehaviour
 {
 
+
+
     public static bool GameModeIsHard;
     // Start is called before the first frame update
     void Start()
     {
-
     }
     // Update is called once per frame
     void Update()
@@ -21,12 +22,14 @@ public class ScenenWechsel : MonoBehaviour
         {
             ResetScene();
         }
+        
     }
 
     public void GoToMenu()
     {
         SceneManager.LoadScene("TitleScreen");
         PlayerStats.fillMana();
+        clockScript.currentTime = 0;
     }
 
     public void GoToLvl1()
@@ -34,6 +37,7 @@ public class ScenenWechsel : MonoBehaviour
         PlayerStats.CurrentMana = PlayerStats.MaxMana;
         PlayerStats.fillMana();
         SceneManager.LoadScene("Lvl1");
+        clockScript.currentTime = 0;
     }
 
     public void Exit()
@@ -88,6 +92,7 @@ public class ScenenWechsel : MonoBehaviour
     public void GoToStandardDeathScreen()
     {
         SceneManager.LoadScene("StandardDeath");
+        clockScript.clockStarted = false;
     }
 
 }
