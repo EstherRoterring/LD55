@@ -15,15 +15,6 @@ public class GhostiController : MonoBehaviour
     public Rigidbody2D myRB;
     public float obereBorder;
     public float untereBorder;
-    float wait = 0;
-
-    AudioManager audioManager;
-
-    private void Awake()
-    {
-        audioManager = GameObject.FindGameObjectWithTag("audio").GetComponent<AudioManager>();
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -56,16 +47,9 @@ public class GhostiController : MonoBehaviour
             transform.eulerAngles = rotation;
         }
 
-        // play ghostu sound
-        //wait += Time.deltaTime;
 
 
 
-        if (wait > 3)
-        {
-            wait = 0;
-            //audioManager.PlaySFX(audioManager.ghostis1);
-        }
 
         //hoch runter Ghosti
 
