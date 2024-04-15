@@ -22,13 +22,13 @@ public class ScenenWechsel : MonoBehaviour
         {
             ResetScene();
         }
-        
+
     }
 
     public void GoToMenu()
     {
         SceneManager.LoadScene("TitleScreen");
-        PlayerStats.fillMana();
+        PlayerStats.fillallMana();
         clockScript.currentTime = 0;
     }
 
