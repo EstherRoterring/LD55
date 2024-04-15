@@ -5,10 +5,11 @@ using UnityEngine;
 public class open_close : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] public static bool OpenStatus = false;
+    [SerializeField] public bool OpenStatus = false;
     [SerializeField] Collider2D DoorCollider;
     [SerializeField] SpriteRenderer DoorSprite;
     bool stop = false;
+
     void Start()
     {
 
@@ -17,14 +18,12 @@ public class open_close : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (OpenStatus)
-        {
-            DoorCollider.enabled = false;
-            DoorSprite.enabled = false;
-            stop = true;
-            //Debug.Log("Door opened");
-
-        }
-        else DoorCollider.enabled = true;
+       
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        DoorCollider.enabled = false;
+        DoorSprite.enabled = false;
+        stop = true;
     }
 }
