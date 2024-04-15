@@ -34,21 +34,32 @@ public class ScenenWechsel : MonoBehaviour
 
     public void GoToLvl1()
     {
-        PlayerStats.CurrentMana = PlayerStats.MaxMana;
-        PlayerStats.fillMana();
+        PlayerStats.fillallMana();
         SceneManager.LoadScene("Lvl1");
         clockScript.currentTime = 0;
     }
 
     public void Exit()
     {
+
+#if (UNITY_EDITOR || DEVELOPMENT_BUILD)
+        Debug.Log(this.name + " : " + this.GetType() + " : " + System.Reflection.MethodBase.GetCurrentMethod().Name);
+#endif
+#if (UNITY_EDITOR)
+        UnityEditor.EditorApplication.isPlaying = false;
+#elif (UNITY_STANDALONE)
         Application.Quit();
+#elif (UNITY_WEBGL)
+        Application.OpenURL("https://ldjam.com/events/ludum-dare/55/$385543");
+        Application.Quit();
+#endif
     }
 
     public void ResetScene()
     {
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        RestartLvl();
     }
 
     public void RestartLvl()
@@ -59,8 +70,10 @@ public class ScenenWechsel : MonoBehaviour
         }
         else
         {
-            PlayerStats.CurrentMana = PlayerStats.manaLevels[PlayerController.restartPoint];
+
             SceneManager.LoadScene(PlayerController.restartPoint);
+            PlayerStats.loadMana(PlayerController.restartPoint);
+            Debug.Log(PlayerStats.manaLevels[PlayerController.restartPoint]);
         }
 
         //PlayerStats.CurrentMana = PlayerStats.MaxMana;
@@ -69,24 +82,22 @@ public class ScenenWechsel : MonoBehaviour
     public static void NextScene()
     {
 
-        int activeScene = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log(PlayerStats.manaLevels[0]);
-        PlayerStats.manaLevels[activeScene] = PlayerStats.CurrentMana;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("NextScene scene!!!" + PlayerStats.manaLevels[currentLevel]);
+        SceneManager.LoadScene(currentLevel + 1);
+        PlayerStats.saveCurrentMana(currentLevel + 1);
     }
 
-    public void NextSceneNormal()
+    public void GoToLvl1Normal()
     {
         GameModeIsHard = false;
-        PlayerStats.fillMana();
-        NextScene();
+        GoToLvl1();
     }
 
-    public void NextSceneHard()
+    public void GoToLvl1Hard()
     {
         GameModeIsHard = true;
-        PlayerStats.fillMana();
-        NextScene();
+        GoToLvl1();
     }
 
     public void GoToStandardDeathScreen()

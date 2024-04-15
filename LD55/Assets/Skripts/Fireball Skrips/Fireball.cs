@@ -80,6 +80,13 @@ public class Fireball : MonoBehaviour
             this.gameObject.GetComponent<AudioSource>().clip = throwAudio;
             this.gameObject.GetComponent<AudioSource>().Play();
             throwScale = chargeScale;
+
+            //Vector2 relPos = rb.transform.position - playerRB.transform.position;
+            //Debug.Log(playerRB);
+
+            //playerRB.velocity += Vector2.left * 10;
+            playerRB.AddForce(Vector2.left * 100, ForceMode2D.Impulse);
+            Debug.Log(playerRB.velocity);
         }
     }
 
