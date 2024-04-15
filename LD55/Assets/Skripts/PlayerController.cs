@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
             new WaitForSeconds(1.5f);
             SceneManager.LoadScene("StandardDeath");
         }
-        
+
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log(collision.collider.name);
 
         //test ob auf Boden -> anti Flug Programm :)
-        if ((collision.gameObject.tag == "ground")||(collision.gameObject.tag == "Box"))
+        if ((collision.gameObject.tag == "ground") || (collision.gameObject.tag == "Box"))
         {
             isGrounded = true;
         }
@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.tag == "backtrack")
         {
             //scenenwechsel;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex -1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
         }
 
         //Tode/Death
@@ -161,7 +161,6 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Enemy detected");
             restartPoint = SceneManager.GetActiveScene().buildIndex;
-            PlayerStats.manaLevels[SceneManager.GetActiveScene().buildIndex] = PlayerStats.CurrentMana;
             Destroy(gameObject);
             //Spawn dead body?
             new WaitForSeconds(1.5f);
@@ -172,7 +171,6 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("projectile");
             restartPoint = SceneManager.GetActiveScene().buildIndex;
-            PlayerStats.manaLevels[SceneManager.GetActiveScene().buildIndex] = PlayerStats.CurrentMana;
             Destroy(gameObject);
             //Spawn dead body?
             new WaitForSeconds(1.5f);

@@ -20,7 +20,7 @@ public class PlayerStats : MonoBehaviour
     {
 
     }
-   
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "manaPotion")
@@ -32,12 +32,26 @@ public class PlayerStats : MonoBehaviour
 
     }
 
-    public static void fillMana()
+    public static void fillallMana()
     {
         for (int i = 0; i < manaLevels.Length; i++)
         {
-            manaLevels[i] = 100;
+            manaLevels[i] = MaxMana;
         }
+    }
+
+    public static void saveCurrentMana(int level)
+    {
+        manaLevels[level] = CurrentMana;
+    }
+    public static void loadMana(int level)
+    {
+        CurrentMana = manaLevels[level];
+    }
+
+    public static void fillCurrentMana()
+    {
+        CurrentMana = MaxMana;
     }
 }
 
