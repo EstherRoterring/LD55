@@ -49,6 +49,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            PlayerStats.fillCurrentMana();
+        }
+
         //Springen
         if (Input.GetKeyDown(jump) && (isGrounded))
         {

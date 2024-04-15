@@ -15,13 +15,13 @@ public class PlayerStats : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         //Debug.Log(this.gameObject.name);
     }
 
