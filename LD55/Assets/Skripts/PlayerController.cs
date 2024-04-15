@@ -49,14 +49,21 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M) && Input.GetKeyDown(KeyCode.LeftAlt))
         {
             PlayerStats.fillCurrentMana();
         }
 
         if (Input.GetKeyUp(KeyCode.R))
         {
-            ScenenWechsel.ResetScene();
+            if (ScenenWechsel.GameModeIsHard)
+            {
+                ScenenWechsel.GoToLvl1Hard();
+            }
+            else
+            {
+                ScenenWechsel.ResetScene();
+            }
         }
 
         //Springen
