@@ -745,7 +745,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -301, y: -278}
+  m_AnchoredPosition: {x: -396, y: -270}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1507386826
@@ -768,10 +768,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Gameplay is the same but Hard has no instructions and no checkponts.
+  m_text: 'Gameplay is the same but Hard has no instructions, no checkponts and no
+    cutscene.
 
-    Also
-    you will be competing for a time in Hard Mode.
+    Also you will be competing for a time in Hard Mode.
 
 
 '
@@ -837,7 +837,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 22.440516, z: -388.33618, w: 0}
+  m_margin: {x: 0, y: 22.440516, z: -462.14203, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
