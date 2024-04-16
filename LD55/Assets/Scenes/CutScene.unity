@@ -498,6 +498,10 @@ PrefabInstance:
       propertyPath: background
       value: 
       objectReference: {fileID: 8300000, guid: 23c23ba69906b73488fe22c76f4dd72a, type: 3}
+    - target: {fileID: 2754120233354902492, guid: cd37bb29c05434b1ea08057a7a082ecc, type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5123218559567890756, guid: cd37bb29c05434b1ea08057a7a082ecc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.7025125
@@ -1706,7 +1710,7 @@ SpriteRenderer:
   m_Size: {x: 1.6, y: 0.9}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1268642823
