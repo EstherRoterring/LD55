@@ -15,7 +15,7 @@ public class endScreen : MonoBehaviour
         }
         else
         {
-            text.text = "";
+            text.text = "Maybe try hard mode next :)";
         }
 
     }
