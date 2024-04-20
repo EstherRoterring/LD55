@@ -8,6 +8,7 @@ public class fallingChandelier : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.gameObject.tag = "Untagged";
     }
 
     // Update is called once per frame
